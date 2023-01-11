@@ -8,7 +8,7 @@ module.exports = {
       allowNull: false
     })
     await queryInterface.sequelize.query(
-        `UPDATE todos SET statut = 'EN_RETARD' WHERE date_echeace < now()`
+        `UPDATE todos SET statut = 'EN_RETARD' WHERE date_echeance < now()`
     )
   },
 
