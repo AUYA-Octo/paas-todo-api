@@ -13,7 +13,7 @@ const REDIS_URL = process.env.REDIS_URL
 let workQueue = new Queue("queueEcheanceTodos", REDIS_URL)
 
 app.get("/", function (req, res) {
-  res.send(`Hello World!`)
+  res.send(`Hello World !`)
 })
 
 app.get("/todos", async function (req, res) {
