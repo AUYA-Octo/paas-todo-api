@@ -36,11 +36,13 @@ app.post("/todos", async function (req, res) {
         replacements: [req.body.description, req.body.date_echeance]
       }
     )
+
     // Planification d'un JOB dans la queue qui s'exécute lorsque la date d'échéance du ToDo arrive
     await workQueue.add(
       { idTodo: todos[0][0].id, dateEcheance: req.body.date_echeance },
       { delay: new Date(req.body.date_echeance).getTime() - Date.now() }
     )
+
   } catch (error) {
     console.error(error)
     res.status(400).send("bad request")
